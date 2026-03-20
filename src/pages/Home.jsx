@@ -59,7 +59,7 @@ const Home = () => {
               Vehicle Service{" "}
               <span className="text-accent">Booking System</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-zinc-50 mb-8 max-w-2xl mx-auto">
               Book your vehicle service appointment online. Fast, easy, and
               reliable. No more waiting in queues or making phone calls.
             </p>
@@ -146,7 +146,7 @@ const Home = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step, index) => (
               <div key={index} className="text-center relative">
-                <div className="bg-accent text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold shadow-lg">
+                <div className="bg-accent text-black w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold shadow-lg">
                   {step.num}
                 </div>
                 <h3 className="font-bold text-primary mb-2">{step.title}</h3>
@@ -165,7 +165,7 @@ const Home = () => {
       <section className="py-16 px-4">
         <div className="max-w-3xl mx-auto text-center bg-primary rounded-2xl p-10 shadow-xl">
           <CheckCircle className="w-12 h-12 text-accent mx-auto mb-4" />
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-black mb-4">
             Ready to Book Your Service?
           </h2>
           <p className="text-gray-300 mb-6">
