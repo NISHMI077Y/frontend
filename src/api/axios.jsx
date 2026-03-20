@@ -1,10 +1,15 @@
 import axios from "axios";
 
+// Hardcode the production URL as fallback
+const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+
+console.log("🔗 API URL:", BASE_URL);
+
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000/api",
+  baseURL: BASE_URL,
 });
 
-// Attach JWT token to every request
+// Attach JWT token
 API.interceptors.request.use(
   (config) => {
     const stored = localStorage.getItem("user");
@@ -16,15 +21,14 @@ API.interceptors.request.use(
     }
     return config;
   },
-  (error) => {
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
 
-// Handle 401 errors globally
+// Handle errors
 API.interceptors.response.use(
   (response) => response,
   (error) => {
+    console.error("API Error:", error.response?.status, error.response?.data);
     if (error.response?.status === 401) {
       localStorage.removeItem("user");
       window.location.href = "/login";
